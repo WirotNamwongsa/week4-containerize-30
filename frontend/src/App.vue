@@ -343,38 +343,26 @@ div { color: var(--text); }
 
 .app-header {
   position: sticky; top: 0; z-index: 100;
-  background: linear-gradient(180deg, #14141b 0%, #0d0d12 100%);
-  border-bottom: 1px solid var(--border-glow);
+  background: #0f1012;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
   height: 62px; padding: 0 1.5rem;
   display: flex; align-items: center; gap: .85rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,.6), 0 1px 0 rgba(239,68,68,.08);
 }
 .logo { display: flex; align-items: center; gap: .6rem; }
-.logo-icon {
-  font-size: 1.6rem;
-  filter: drop-shadow(0 0 6px rgba(239,68,68,.5));
-}
+.logo-icon { font-size: 1.6rem; }
 .logo-name {
-  font-weight: 800; font-size: 1.15rem; line-height: 1;
-  color: #ff4d4d;
-  text-shadow: 0 0 10px rgba(239,68,68,.6), 0 0 2px rgba(239,68,68,.8);
-  letter-spacing: .5px;
+  font-weight: 700; font-size: 1.05rem; line-height: 1;
+  color: #ff6b6b; letter-spacing: .35px;
 }
 .logo-sub  { font-size: .72rem; color: var(--text-dim); }
 .btn-add {
   margin-left: auto;
-  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
-  color: #fff;
-  border: 1px solid #ef4444;
-  border-radius: 8px;
-  padding: .55rem 1.2rem; font-size: .9rem; font-weight: 700;
-  cursor: pointer; transition: all .2s;
-  box-shadow: 0 0 10px rgba(239,68,68,.35);
+  background: #b91c1c; color: #fff;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px; padding: .5rem 1rem; font-size: .9rem; font-weight: 700;
+  cursor: pointer; transition: transform .12s ease, box-shadow .12s ease;
 }
-.btn-add:hover {
-  background: linear-gradient(135deg, #991b1b, #ef4444);
-  box-shadow: 0 0 18px rgba(239,68,68,.6);
-}
+.btn-add:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.45); }
 
 .main {
   max-width: 1280px; margin: 0 auto; padding: 1.75rem 1.5rem;
@@ -388,11 +376,9 @@ div { color: var(--text); }
   gap: 1rem; margin-bottom: 1.5rem;
 }
 .stat-card {
-  background: linear-gradient(160deg, var(--bg-card), #0f0f14);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.1rem; display: flex; align-items: center; gap: .9rem;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.02), 0 4px 14px rgba(0,0,0,.5);
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 10px; padding: 1rem; display: flex; align-items: center; gap: .75rem;
 }
 .stat-icon {
   width: 46px; height: 46px; border-radius: 10px;
@@ -446,18 +432,14 @@ div { color: var(--text); }
   gap: 1.2rem;
 }
 .product-card {
-  background: linear-gradient(165deg, var(--bg-card), #101015);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden; transition: transform .2s, box-shadow .2s, border-color .2s;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 12px; overflow: hidden;
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
 }
-.product-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0,0,0,.7), 0 0 14px rgba(239,68,68,.12);
-  border-color: #44303a;
-}
-.product-card.card-low  { border-color: #7f1d1d; box-shadow: 0 0 14px rgba(239,68,68,.18); }
-.product-card.card-out  { border-color: #2a2a35; opacity: .55; filter: grayscale(.4); }
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.55); }
+.product-card.card-low  { border-color: rgba(239,68,68,0.15); }
+.product-card.card-out  { border-color: rgba(255,255,255,0.02); opacity: .8; filter: grayscale(.15); }
 
 .card-top { padding: 1.1rem; }
 .cat-badge {
@@ -518,12 +500,10 @@ div { color: var(--text); }
   z-index: 500; padding: 1rem;
 }
 .modal {
-  background: linear-gradient(160deg, #16161d, #0e0e13);
-  border: 1px solid var(--border-glow);
-  border-radius: 16px;
-  width: 100%; max-width: 480px;
-  max-height: 90vh; overflow-y: auto; padding: 2rem;
-  box-shadow: 0 0 40px rgba(0,0,0,.8), 0 0 20px rgba(239,68,68,.08);
+  background: #15151a; border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 12px; width: 100%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto; padding: 1.5rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,.6);
 }
 .modal-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text); }
 
@@ -579,11 +559,8 @@ div { color: var(--text); }
 
 /* --- Interactive enhancements: subtle animations and button effects --- */
 .product-card { will-change: transform, opacity; }
-.product-card { animation: fadeUp .36s cubic-bezier(.2,.9,.3,1) both; }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+.product-card { animation: fadeUp .22s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Shared button base for nicer interactions */
 .btn-edit, .btn-del, .btn-cancel, .btn-save, .btn-add, .btn-danger-confirm {
@@ -616,11 +593,6 @@ div { color: var(--text); }
 }
 
 /* Emphasize low-stock items with a subtle pulse */
-.product-card.card-low { animation: lowPulse 2.2s ease-in-out infinite; }
-@keyframes lowPulse {
-  0% { box-shadow: 0 10px 24px rgba(0,0,0,.65), 0 0 10px rgba(239,68,68,.12); }
-  50% { box-shadow: 0 14px 30px rgba(0,0,0,.68), 0 0 20px rgba(239,68,68,.14); }
-  100% { box-shadow: 0 10px 24px rgba(0,0,0,.65), 0 0 10px rgba(239,68,68,.12); }
-}
+/* removed lowPulse animation for simpler look */
 
 </style>
