@@ -576,4 +576,51 @@ div { color: var(--text); }
   .form-row { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* --- Interactive enhancements: subtle animations and button effects --- */
+.product-card { will-change: transform, opacity; }
+.product-card { animation: fadeUp .36s cubic-bezier(.2,.9,.3,1) both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Shared button base for nicer interactions */
+.btn-edit, .btn-del, .btn-cancel, .btn-save, .btn-add, .btn-danger-confirm {
+  position: relative;
+  overflow: hidden;
+  transition: transform .12s ease, box-shadow .18s ease, filter .12s ease;
+}
+.btn-edit:active, .btn-del:active, .btn-cancel:active, .btn-save:active, .btn-add:active, .btn-danger-confirm:active {
+  transform: translateY(1px) scale(.997);
+  filter: brightness(.98);
+}
+.btn-edit:focus-visible, .btn-del:focus-visible, .btn-cancel:focus-visible, .btn-save:focus-visible, .btn-add:focus-visible, .btn-danger-confirm:focus-visible {
+  outline: 2px solid rgba(196, 181, 253, .12);
+  outline-offset: 3px;
+}
+
+/* Gentle hover lift for primary controls */
+.btn-add:hover { transform: translateY(-3px) scale(1.02); }
+
+/* Small ripple effect using pseudo-element centered on the button (simple) */
+.btn-edit::after, .btn-del::after, .btn-cancel::after, .btn-save::after, .btn-add::after, .btn-danger-confirm::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), rgba(255,255,255,0.02) 30%, transparent 40%);
+  opacity: 0; pointer-events: none; transition: opacity .24s ease, transform .24s ease;
+  transform: scale(.96);
+}
+.btn-edit:active::after, .btn-del:active::after, .btn-cancel:active::after, .btn-save:active::after, .btn-add:active::after, .btn-danger-confirm:active::after {
+  opacity: 1; transform: scale(1);
+}
+
+/* Emphasize low-stock items with a subtle pulse */
+.product-card.card-low { animation: lowPulse 2.2s ease-in-out infinite; }
+@keyframes lowPulse {
+  0% { box-shadow: 0 10px 24px rgba(0,0,0,.65), 0 0 10px rgba(239,68,68,.12); }
+  50% { box-shadow: 0 14px 30px rgba(0,0,0,.68), 0 0 20px rgba(239,68,68,.14); }
+  100% { box-shadow: 0 10px 24px rgba(0,0,0,.65), 0 0 10px rgba(239,68,68,.12); }
+}
+
 </style>
