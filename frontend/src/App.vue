@@ -141,7 +141,7 @@ onMounted(fetchProducts)
       <div class="logo">
         <span class="logo-icon">📦</span>
         <div>
-          <div class="logo-name">Dark Web</div>
+          <div class="logo-name">Wirot Namwongsa 30</div>
           <div class="logo-sub">ระบบจัดการสินค้ามืดคงคลัง</div>
         </div>
       </div>
